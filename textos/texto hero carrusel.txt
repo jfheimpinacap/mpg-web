@@ -1,0 +1,15 @@
+En grande:
+"Cotizar Servicios" y debajo mas pequeño: "Reparacion de maquinaria electromecánica industriales"
+
+En menor tamaño:
+- Levantamiento en Planta de Motores a Reparar
+
+- Bobinado de Motores Eléctricos con corriente alterna (CA) y corriente continua (CC) de 1 a 500 HP
+
+- Medición Eléctrica de Motores en Terreno con Motoanalyzer 2
+
+- Reparación de Bombas Industriales y Blower
+
+- Reparación de Motorreductores
+
+El boton de "Solicitar Cotización" debe ser un poco mas grande y mas llamativo, agregarle un degrades en los mismos tonos y agregar un hover notorio al poner el puntero encima
