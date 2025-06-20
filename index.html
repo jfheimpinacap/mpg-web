@@ -72,23 +72,23 @@
       transform: translateY(0);
     }
 
-.btn-cotizar {
-  background: linear-gradient(to right, #f1842d, #ff6600);
-  color: white;
-  border: none;
-  padding: 1rem 2.5rem;               /* Más grande */
-  font-size: 1.4rem;                  /* Tamaño de texto aumentado */
-  font-weight: 700;
-  border-radius: 12px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-}
+    .btn-cotizar {
+      background: linear-gradient(to right, #f1842d, #ff6600);
+      color: white;
+      border: none;
+      padding: 1rem 2.5rem;               /* Más grande */
+      font-size: 1.4rem;                  /* Tamaño de texto aumentado */
+      font-weight: 700;
+      border-radius: 12px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
 
-.btn-cotizar:hover {
-  transform: scale(1.08);            /* Efecto de agrandamiento */
-  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.5);
-  cursor: pointer;
-}
+    .btn-cotizar:hover {
+      transform: scale(1.08);            /* Efecto de agrandamiento */
+      box-shadow: 0 6px 14px rgba(0, 0, 0, 0.5);
+      cursor: pointer;
+    }
 
     @media (max-width: 768px) {
     .rotating-text {
@@ -96,24 +96,46 @@
       min-height: 3rem;
       }
     }
-.social-icon i {
-  color: #ffffff !important;
-}
+    .social-icon i {
+      color: #ffffff !important;
+    }
 
-.social-icon:hover i {
-  color: rgb(241, 132, 45) !important;
-}
+    .social-icon:hover i {
+      color: rgb(241, 132, 45) !important;
+    }
 
-  .social-icon {
-    text-decoration: none !important;
-  }
+    .social-icon {
+      text-decoration: none !important;
+     }
 
-  .social-icon i {
-    color: #ffffff !important;
-    text-decoration: none !important;
-    display: inline-block;
-    vertical-align: middle;
-  }
+   .social-icon i {
+      color: #ffffff !important;
+      text-decoration: none !important;
+      display: inline-block;
+      vertical-align: middle;
+    }
+
+   .clientes {
+      background-color: rgb(248, 234, 224);
+      margin-bottom: 80px; /* Espacio inferior antes de contacto */
+    }
+
+    .cliente-logo {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease, transform 0.6s ease;
+    }
+
+    .cliente-logo.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+ 
+    .bg-footer-custom {
+      background-color: #2b2b2b; /* más oscuro que bg-dark pero no negro puro */
+      font-size: 0.9rem;
+    }
+
   </style>
 
 </head>
@@ -142,13 +164,13 @@
             <a class="nav-link" href="#servicios">SERVICIOS</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#quienes-somos">QUIÉNES SOMOS</a>
+            <a class="nav-link" href="quienes-somos.html">QUIÉNES SOMOS</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#infraestructura">INFRAESTRUCTURA</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#contacto">CONTACTO</a>
+            <a class="nav-link" href="contacto.html">CONTACTO</a>
           </li>
         </ul>
       </div>
@@ -177,8 +199,8 @@
       <h1 class="hero-title">Cotizar Servicio</h1>
       <h2 class="hero-subtitle">Reparación y mantenimiento de máquinas rotativas Electromecánicas Industriales.</h2>
       <div id="frases-dinamicas" class="rotating-text mt-4"></div>
-      <a href="formulario-cotizacion.html" class="btn btn-cotizar mt-4">Solicitar Cotización
-      <i class="bi bi-tools ms-2"></i></a>
+      <a href="formulario-cotizacion.html" class="btn btn-cotizar mt-4" target="_blank" rel="noopener">Solicitar Cotización
+      <i class="bi bi-tools ms-2"></i>
       </a>
 </section>
 
@@ -235,6 +257,27 @@
   </div>
 </section>
 
+<!-- Algunos de nuestros clientes -->  
+<section class="clientes py-5 text-white">
+  <div class="container text-center">
+    <h2 class="mb-5 text-black">Algunos de nuestros clientes</h2>
+    <div class="row justify-content-center align-items-center">
+      <div class="col-6 col-md-3 mb-4 cliente-logo">
+        <img src="logos_clientes/cliente1.png" class="img-fluid" alt="Cliente 1">
+      </div>
+      <div class="col-6 col-md-3 mb-4 cliente-logo">
+        <img src="logos_clientes/cliente2.png" class="img-fluid" alt="Cliente 2">
+      </div>
+      <div class="col-6 col-md-3 mb-4 cliente-logo">
+        <img src="logos_clientes/cliente3.png" class="img-fluid" alt="Cliente 3">
+      </div>
+      <div class="col-6 col-md-3 mb-4 cliente-logo">
+        <img src="logos_clientes/cliente4.png" class="img-fluid" alt="Cliente 4">
+      </div>
+    </div>
+  </div>
+</section>
+
 
 <section id="contacto" class="py-5 bg-dark text-white">
   <div class="container">
@@ -244,7 +287,7 @@
       <div class="col-md-6 mb-5">
         <!-- Título alineado -->
         <div class="d-flex align-items-center mb-4">
-          <h3 class="mb-0" style="color: rgb(241, 132, 45); font-size: 2rem">Contacto</h3>
+          <h3 class="mb-0" style="color: rgb(255, 255, 255); font-size: 2rem">Contacto</h3>
         </div>
 
         <div class="mb-4 d-flex">
@@ -282,6 +325,7 @@
   <a href="#" target="_blank" class="me-3 social-icon">
     <i class="bi bi-linkedin fs-3"></i>
   </a>
+
 </div>
       </div>
 
@@ -289,7 +333,7 @@
       <div class="col-md-6 mb-5">
         <!-- Título alineado -->
         <div class="d-flex align-items-center mb-4">
-          <h3 class="mb-0" style="color: rgb(241, 132, 45); font-size: 2rem;">Ubicación</h3>
+          <h3 class="mb-0" style="color: rgb(255, 255, 255); font-size: 2rem;">Ubicación</h3>
         </div>
         <div class="ratio ratio-4x3">
           <iframe src="https://www.google.com/maps/embed?pb=!1m13!1m8!1m3!1d6669.936464506759!2d-70.73130382220455!3d-33.29349407299862!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzPCsDE3JzM2LjAiUyA3MMKwNDMnNDMuOCJX!5e0!3m2!1ses!2scl!4v1750357328145!5m2!1ses!2scl"
@@ -302,10 +346,6 @@
     </div>
   </div>
 </section>
-
-
-
-
 
 
 <script>
@@ -335,7 +375,28 @@
   cambiarFrase(); // Mostrar la primera frase al cargar
 </script>
 
+<script>
+  const logos = document.querySelectorAll('.cliente-logo');
 
+  function mostrarLogos() {
+    const trigger = window.innerHeight * 0.9;
+    logos.forEach(logo => {
+      const top = logo.getBoundingClientRect().top;
+      if (top < trigger) {
+        logo.classList.add('visible');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', mostrarLogos);
+  window.addEventListener('load', mostrarLogos);
+</script>
+
+
+<!-- Footer -->
+<footer class="bg-footer-custom text-white text-center py-2">
+  <small>Desarrollado por <a href="mailto:heim.franz@gmail.com" class="text-white text-decoration-none">heim.franz@gmail.com</a></small>
+</footer>
 
 
 

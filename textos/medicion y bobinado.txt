@@ -5,6 +5,4 @@ Levantamiento en Planta de Motores a Reparar
 -Reparación y Mantención en Taller.
 -Montaje Equipos Reparados en Planta
 
-Boobinado de Motores Eléctricos
-
 Bobinado de Motores Eléctricos con corriente alterna (CA) y corriente continua (CC) de 1 a 500 HP
