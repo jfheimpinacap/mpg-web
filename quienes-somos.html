@@ -24,12 +24,10 @@
     }
     .titulo-principal {
       color: rgb(65, 51, 116);
-      font-weight: bold;
       font-size: 2.5rem;
     }
     .subtitulo-destacado {
       font-size: 3rem;
-      font-weight: bold;
       color: rgb(241, 132, 45);
     }
     .descripcion-exp {
@@ -40,10 +38,52 @@
       .subtitulo-destacado {
       font-size: 2rem;
       }
+    }
     .descripcion-exp {
       font-size: 1rem;
-      }
     }
+    
+    .galeria-trabajos {
+      background-color: rgb(254, 240, 230);
+      padding: 4rem 0 4rem 0;
+    }
+    .galeria-trabajos h2 {
+      color: black;
+      text-align: center;
+      margin-bottom: 2rem;
+      font-weight: bold;
+    }
+       
+    .carousel-inner {
+      display: flex;
+      flex-wrap: nowrap;
+      overflow: hidden;
+    }
+    .carousel-item {
+      flex: 0 0 100%;
+    }
+    .carousel-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0.5rem;
+      justify-items: center;
+      align-items: center;
+    }
+    .carousel-grid img {
+      max-height: 200px;
+      width: 100%;
+      object-fit: contain;
+      transition: transform 0.4s ease, opacity 0.4s ease;
+    }
+    .carousel-grid img:hover {
+      transform: scale(1.05);
+      opacity: 0.9;
+    }
+    .carousel-control-prev-icon,
+    .carousel-control-next-icon {
+      filter: brightness(0) saturate(100%) invert(100%);
+    }
+
     .bg-footer-custom {
       background-color: #2b2b2b; /* más oscuro que bg-dark pero no negro puro */
       font-size: 0.9rem;
@@ -76,7 +116,7 @@
             <a class="nav-link" href="index.html#infraestructura">INFRAESTRUCTURA</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="index.html#contacto">CONTACTO</a>
+            <a class="nav-link" href="contacto.html">CONTACTO</a>
           </li>
         </ul>
       </div>
@@ -147,12 +187,61 @@
     </div>
   </section>
 
+    <!-- Galería de trabajos como carrusel -->
+    <section class="galeria-trabajos">
+      <div class="container">
+        <h2>Algunos de nuestros trabajos</h2>
+        <div id="carouselTrabajos" class="carousel slide" data-bs-ride="false">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="carousel-grid">
+              <img src="imagenes trabajos/at1.jpeg" class="d-block img-fluid" alt="Trabajo 1">
+              <img src="imagenes trabajos/at2.jpeg" class="d-block img-fluid" alt="Trabajo 2">
+              <img src="imagenes trabajos/at3.jpeg" class="d-block img-fluid" alt="Trabajo 3">
+              <img src="imagenes trabajos/at4.jpeg" class="d-block img-fluid" alt="Trabajo 4">
+              </div>
+            </div>
+              <div class="carousel-item">
+              <div class="carousel-grid">
+              <img src="imagenes trabajos/at5.jpeg" class="d-block img-fluid" alt="Trabajo 5">
+              <img src="imagenes trabajos/at6.jpeg" class="d-block img-fluid" alt="Trabajo 6">
+              <img src="imagenes trabajos/at7.jpeg" class="d-block img-fluid" alt="Trabajo 7">
+              <img src="imagenes trabajos/at8.jpeg" class="d-block img-fluid" alt="Trabajo 8">
+              </div>
+            </div>
+              <div class="carousel-item">
+              <div class="carousel-grid">
+              <img src="imagenes trabajos/at9.jpeg" class="d-block img-fluid" alt="Trabajo 9">
+              <img src="imagenes trabajos/at10.jpeg" class="d-block img-fluid" alt="Trabajo 10">
+              <img src="imagenes trabajos/at11.jpeg" class="d-block img-fluid" alt="Trabajo 11">
+              <img src="imagenes trabajos/at12.jpeg" class="d-block img-fluid" alt="Trabajo 12">
+              </div>
+            </div>
+            <div class="carousel-item">
+            <div class="carousel-grid">
+              <img src="imagenes trabajos/at13.jpeg" class="d-block img-fluid" alt="Trabajo 13">
+              <img src="imagenes trabajos/at14.jpeg" class="d-block img-fluid" alt="Trabajo 14">
+              <img src="imagenes trabajos/at15.jpeg" class="d-block img-fluid" alt="Trabajo 15">
+              <img src="imagenes trabajos/at16.jpeg" class="d-block img-fluid" alt="Trabajo 16">
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselTrabajos" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselTrabajos" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Siguiente</span>
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
 <!-- Footer -->
 <footer class="bg-footer-custom text-white text-center py-2">
   <small>Desarrollado por <a href="mailto:heim.franz@gmail.com" class="text-white text-decoration-none">heim.franz@gmail.com</a></small>
 </footer>
-
-
 
 </body>
 </html>
