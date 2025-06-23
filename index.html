@@ -115,21 +115,91 @@
       vertical-align: middle;
     }
 
-   .clientes {
-      background-color: rgb(248, 234, 224);
-      margin-bottom: 80px; /* Espacio inferior antes de contacto */
-    }
+/* Mostrar dropdown en hover (pantallas grandes) */
+@media (min-width: 992px) {
+  .navbar .dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+  }
 
-    .cliente-logo {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: opacity 0.6s ease, transform 0.6s ease;
-    }
+  .navbar .dropdown-toggle::after {
+    transform: rotate(-90deg); /* Opcional: gira la flechita */
+  }
+}
 
-    .cliente-logo.visible {
-      opacity: 1;
-      transform: translateY(0);
+/* Carrusel clientes */    
+  .clientes {
+    background-color: rgba(255, 255, 255);
+    padding: 3rem 0;
+  }
+
+  .clientes h2 {
+    color: rgb(241, 132, 45);
+    text-align: center;
+    margin-bottom: 2rem;
+    font-weight: bold;
+  }
+
+  .carousel-clientes .carousel-inner {
+    display: flex;
+    overflow: hidden;
+  }
+
+  .carousel-clientes .carousel-item {
+    flex: 0 0 100%;
+    transition: transform 0.5s ease;
+  }
+
+  .clientes-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    align-items: center;
+    justify-items: center;
+    padding: 0 1.5rem;
+  }
+
+.clientes-grid img {
+  max-height: 80px;
+  width: 100%;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+  opacity: 1 !important; /* Asegura opacidad total */
+  background-color: transparent !important; /* sin gris agregado */
+  filter: none !important; /* por si algún filtro visual estuviera afectando */
+  box-shadow: none !important; /* elimina sombreado indeseado */
+}
+
+  .clientes-grid img:hover {
+    transform: scale(1.05);
+    opacity: 1;
+  }
+
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 50%;
+    padding: 10px;
+  }
+
+  .carousel-control-prev,
+  .carousel-control-next {
+    width: 5%;
+  }
+
+  /* RESPONSIVE GRID */
+  @media (max-width: 992px) {
+    .clientes-grid {
+      grid-template-columns: repeat(2, 1fr);
     }
+  }
+
+  @media (max-width: 576px) {
+    .clientes-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
  
     .bg-footer-custom {
       background-color: #2b2b2b; /* más oscuro que bg-dark pero no negro puro */
@@ -141,41 +211,53 @@
 </head>
 <body>
 
-  <!-- NAVBAR -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
-      <!-- Logo -->
-      <a class="navbar-brand" href="#inicio">
-        <img src= "logos svg/svg-pegado-181x75.svg" alt="MPG Logo" height="100" class="me-2">
-      </a>
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container">
+    <!-- Logo -->
+    <a class="navbar-brand" href="#inicio">
+      <img src="logos svg/svg-pegado-181x75.svg" alt="MPG Logo" height="100" class="me-2">
+    </a>
 
-      <!-- Botón responsive -->
-      <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+    <!-- Botón responsive -->
+    <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
-      <!-- Enlaces -->
-      <div class="collapse navbar-collapse" id="menuNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="#inicio">INICIO</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#servicios">SERVICIOS</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="quienes-somos.html">QUIÉNES SOMOS</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#infraestructura">INFRAESTRUCTURA</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contacto.html">CONTACTO</a>
-          </li>
-        </ul>
-      </div>
+    <!-- Enlaces -->
+    <div class="collapse navbar-collapse" id="menuNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="#inicio">INICIO</a>
+        </li>
+
+        <!-- SERVICIOS con Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#servicios" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            SERVICIOS
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark">
+            <li><a class="dropdown-item" href="motores-electricos.html">Motores Eléctricos</a></li>
+            <li><a class="dropdown-item" href="bombas-industriales.html">Bombas Industriales</a></li>
+            <li><a class="dropdown-item" href="blower.html">Blower</a></li>
+            <li><a class="dropdown-item" href="motorreductores.html">Motorreductores</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="quienes-somos.html">QUIÉNES SOMOS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#infraestructura">INFRAESTRUCTURA</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contacto.html">CONTACTO</a>
+        </li>
+      </ul>
     </div>
-  </nav>
+  </div>
+</nav>
+
   
 <!-- HERO CARRUSEL -->
  <section id="hero" class="hero">
@@ -206,73 +288,77 @@
 <!-- Nuestros Servicios -->  
 <section id="servicios" class="py-5 bg-light">
   <div class="container text-center">
-    <h2 class="mb-3">Nuestros Servicios</h2>
+    <h2 class="mb-3" style="color: rgb(241, 132, 45); font-weight: bold ">Servicios</h2>
     <!-- Texto introductorio -->
     <p class="intro-servicios mb-5">
       Entregamos soluciones de mantenimiento y reparación para equipos industriales clave.
       Atendemos principalmente a empresas del sector <strong>minero</strong>, <strong>alimenticio</strong> y de <strong>maquinarias pesadas</strong>,
       adaptándonos a las exigencias de cada industria con altos estándares de calidad y eficiencia.
     </p>
-
     <div class="row">
       
       <!-- Servicio 1 -->
       <div class="col-md-6 col-lg-3 mb-4">
         <img src="imagenes servicios/motorelec1.jpg" alt="Motores Eléctricos" class="img-fluid mb-3 rounded shadow">
-        <a href="servicios.html" class="servicio-link">
         <h5>Reparación y Mantenimiento de Motores Eléctricos</h5>
-        </a>
         <p>Realizamos mantenimiento preventivo y correctivo de motores eléctricos, asegurando su óptimo rendimiento y durabilidad.</p>
       </div>
 
       <!-- Servicio 2 -->
       <div class="col-md-6 col-lg-3 mb-4">
         <img src="imagenes servicios/bomba1.jpg" alt="Bombas Industriales" class="img-fluid mb-3 rounded shadow">
-        <a href="servicios.html" class="servicio-link">
         <h5>Reparación de Bombas Industriales</h5>
-        </a>
         <p>Servicio especializado en reparación y calibración de bombas industriales para distintos procesos productivos.</p>
       </div>
 
       <!-- Servicio 3 -->
       <div class="col-md-6 col-lg-3 mb-4">
         <img src="imagenes servicios/blower2.jpg" alt="Blower" class="img-fluid mb-3 rounded shadow">
-        <a href="servicios.html" class="servicio-link">
         <h5>Reparación de Blower</h5>
-        </a>
         <p>Diagnóstico y reparación de sistemas blower para garantizar una correcta operación y ventilación industrial.</p>
       </div>
 
       <!-- Servicio 4 -->
       <div class="col-md-6 col-lg-3 mb-4">
         <img src="imagenes servicios/motorreductor2.jpg" alt="Motorreductores" class="img-fluid mb-3 rounded shadow">
-        <a href="servicios.html" class="servicio-link">
         <h5>Reparación de Motorreductores</h5>
-        </a>
         <p>Reparamos y realizamos mantención a motorreductores de distintas marcas, garantizando eficiencia y seguridad.</p>
       </div>
-
     </div>
   </div>
 </section>
 
-<!-- Algunos de nuestros clientes -->  
-<section class="clientes py-5 text-white">
-  <div class="container text-center">
-    <h2 class="mb-5 text-black">Algunos de nuestros clientes</h2>
-    <div class="row justify-content-center align-items-center">
-      <div class="col-6 col-md-3 mb-4 cliente-logo">
-        <img src="logos_clientes/cliente1.png" class="img-fluid" alt="Cliente 1">
+<!-- Nuestros clientes carrsuel -->
+<section class="clientes">
+  <div class="container">
+    <h2>Nuestros clientes</h2>
+    <div id="carouselClientes" class="carousel slide carousel-clientes" data-bs-ride="carousel" data-bs-interval="3000">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="clientes-grid">
+            <img src="logos-clientes/fantasilandia_logo.png" alt="Cliente 1">
+            <img src="logos-clientes/Logo_Carozzi-1.png" alt="Cliente 2">
+            <img src="logos-clientes/Logo_Cmpc-1.png" alt="Cliente 3">
+            <img src="logos-clientes/Logo_Codelco-1.png" alt="Cliente 4">
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="clientes-grid">
+            <img src="logos-clientes/Logo_Agrosuper-1.png" alt="Cliente 5">
+            <img src="logos-clientes/Logo_Arauco-1.png" alt="Cliente 6">
+            <img src="logos-clientes/Logo_Dole-1.png" alt="Cliente 7">
+            <img src="logos-clientes/Logo_Molymet-1.png" alt="Cliente 8">
+          </div>
+        </div>
       </div>
-      <div class="col-6 col-md-3 mb-4 cliente-logo">
-        <img src="logos_clientes/cliente2.png" class="img-fluid" alt="Cliente 2">
-      </div>
-      <div class="col-6 col-md-3 mb-4 cliente-logo">
-        <img src="logos_clientes/cliente3.png" class="img-fluid" alt="Cliente 3">
-      </div>
-      <div class="col-6 col-md-3 mb-4 cliente-logo">
-        <img src="logos_clientes/cliente4.png" class="img-fluid" alt="Cliente 4">
-      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselClientes" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Anterior</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselClientes" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Siguiente</span>
+      </button>
     </div>
   </div>
 </section>
