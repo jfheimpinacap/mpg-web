@@ -39,96 +39,208 @@
       font-size: 2rem;
       }
     }
+    
     .descripcion-exp {
       font-size: 1rem;
     }
     
-    .galeria-trabajos {
-      background-color: rgb(254, 240, 230);
-      padding: 4rem 0 4rem 0;
-    }
-    .galeria-trabajos h2 {
-      color: black;
-      text-align: center;
-      margin-bottom: 2rem;
-      font-weight: bold;
-    }
-       
-    .carousel-inner {
-      display: flex;
-      flex-wrap: nowrap;
-      overflow: hidden;
-    }
-    .carousel-item {
-      flex: 0 0 100%;
-    }
-    .carousel-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2rem;
-      justify-items: center;
-      align-items: center;
-    }
-    .carousel-grid img {
-      max-height: 100%;
-      width: 200px;
-      object-fit: contain;
-      transition: transform 0.4s ease, opacity 0.4s ease;
-    }
-    .carousel-grid img:hover {
-      transform: scale(1.05);
-      opacity: 0.9;
-    }
-    .carousel-control-prev-icon,
-    .carousel-control-next-icon {
-      filter: brightness(0) saturate(100%) invert(100%);
-    }
+    /* Mostrar dropdown en hover (pantallas grandes) */
+@media (min-width: 992px) {
+  .navbar .dropdown:hover .dropdown-menu {
+    display: block;
+    margin-top: 0;
+  }
 
-    .bg-footer-custom {
-      background-color: #2b2b2b; /* más oscuro que bg-dark pero no negro puro */
-      font-size: 0.9rem;
-    }   
+  .navbar .dropdown-toggle::after {
+    transform: rotate(-90deg); /* Opcional: gira la flechita */
+  }
+}
+
+/* Certificaciones */
+.certificaciones-iso {
+  background-color: #fce3d1; /* naranja claro */
+  padding: 3rem 0;
+}
+
+.titulo-certificado {
+  color: rgb(241, 132, 45); /* naranjo corporativo */
+  font-size: 1.75rem;
+  font-weight: bold;
+}
+
+.img-certificacion {
+  max-height: 90px;
+  width: auto;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.img-certificacion:hover {
+  transform: scale(1.05);
+}
+
+/* Animación simple de subida */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-up {
+  animation: fadeUp 1s ease forwards;
+}
+
+
+/* Carrusel nuestros trabajos */
+.clientes {
+  background-color: #f8f8f8;
+  padding: 3rem 0;
+}
+
+.clientes h2 {
+  color: #000;
+  text-align: center;
+  margin-bottom: 2rem;
+  font-weight: bold;
+}
+
+.carousel-clientes .carousel-inner {
+  display: flex;
+  overflow: hidden;
+}
+
+.carousel-clientes .carousel-item {
+  flex: 0 0 100%;
+  transition: transform 1.5s ease-in-out;
+}
+
+/* Sección galería trabajos estilo horizontal */
+.clientes-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.4rem; /* espacio entre imágenes reducido */
+  padding: 0 1rem;
+}
+
+.clientes-grid img {
+  max-height: 300px;
+  width: auto;
+  object-fit: contain;
+  background-color: #fff;
+  padding: 6px;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  opacity: 0.95;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.clientes-grid img:hover {
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+/* Transición lenta del carrusel */
+.carousel-clientes .carousel-item {
+  transition: transform 1.5s ease-in-out;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 50%;
+  padding: 10px;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+  width: 5%;
+}
+
+/* Responsivo */
+@media (max-width: 992px) {
+  .clientes-grid img {
+    max-height: 220px;
+  }
+}
+
+@media (max-width: 576px) {
+  .clientes-grid {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .clientes-grid img {
+    max-height: 160px;
+  }
+}
+
+  .bg-footer-custom {
+    background-color: #2b2b2b; /* más oscuro que bg-dark pero no negro puro */
+    font-size: 0.9rem;
+}   
   </style>
 
 </head>
 <body>
-  <!-- NAVBAR -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="index.html">
-        <img src="logos svg/svg-pegado-181x75.svg" alt="MPG Logo" height="100" class="me-2">
-      </a>
-      <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="menuNav">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html#inicio">INICIO</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="index.html#servicios">SERVICIOS</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="index.html#quienes-somos">QUIÉNES SOMOS</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="index.html#infraestructura">INFRAESTRUCTURA</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="contacto.html">CONTACTO</a>
-          </li>
-        </ul>
-      </div>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <div class="container">
+    <!-- Logo -->
+    <a class="navbar-brand" href="index.html">
+      <img src="logos svg/svg-pegado-181x75.svg" alt="MPG Logo" height="100" class="me-2">
+    </a>
+
+    <!-- Botón responsive -->
+    <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#menuNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- Enlaces -->
+    <div class="collapse navbar-collapse" id="menuNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">INICIO</a>
+        </li>
+
+        <!-- SERVICIOS con Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#servicios" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            SERVICIOS
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark">
+            <li><a class="dropdown-item" href="motores-electricos.html">Motores Eléctricos</a></li>
+            <li><a class="dropdown-item" href="bombas-industriales.html">Bombas Industriales</a></li>
+            <li><a class="dropdown-item" href="blower.html">Blower</a></li>
+            <li><a class="dropdown-item" href="motorreductores.html">Motorreductores</a></li>
+          </ul>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="quienes-somos.html">QUIÉNES SOMOS</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#infraestructura">INFRAESTRUCTURA</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="contacto.html">CONTACTO</a>
+        </li>
+      </ul>
     </div>
-  </nav>
+  </div>
+</nav>
 
   <!-- Contenido Principal -->
   <section class="container py-5">
     <div class="row mb-5">
       <!-- Columna Derecha superior -->
-      <div class="col-md-6 ps-md-5">
-        <h2 class="subtitulo-destacado">"15 años <br>de experiencia"</h2>
+      <div class="col-12 text-center mt-4">
+        <h2 class="subtitulo-destacado">"15 años de <br> experiencia"</h2>
         <p class="descripcion-exp">En mantenimiento y reparación de motores y maquinaria del rubro minero, alimenticio y maquinaria pesada</p>
       </div>
     </div>
@@ -187,56 +299,64 @@
     </div>
   </section>
 
-    <!-- Galería de trabajos como carrusel -->
-    <section class="galeria-trabajos">
-      <div class="container">
-        <h2>Algunos de nuestros trabajos</h2>
-        <div id="carouselTrabajos" class="carousel slide" data-bs-ride="false">
-          <div class="carousel-inner">
-            <div class="carousel-item active">
-              <div class="carousel-grid">
-              <img src="imagenes trabajos/at1.jpeg" class="d-block img-fluid" alt="Trabajo 1">
-              <img src="imagenes trabajos/at2.jpeg" class="d-block img-fluid" alt="Trabajo 2">
-              <img src="imagenes trabajos/at3.jpeg" class="d-block img-fluid" alt="Trabajo 3">
-              <img src="imagenes trabajos/at4.jpeg" class="d-block img-fluid" alt="Trabajo 4">
-              </div>
-            </div>
-              <div class="carousel-item">
-              <div class="carousel-grid">
-              <img src="imagenes trabajos/at5.jpeg" class="d-block img-fluid" alt="Trabajo 5">
-              <img src="imagenes trabajos/at6.jpeg" class="d-block img-fluid" alt="Trabajo 6">
-              <img src="imagenes trabajos/at7.jpeg" class="d-block img-fluid" alt="Trabajo 7">
-              <img src="imagenes trabajos/at8.jpeg" class="d-block img-fluid" alt="Trabajo 8">
-              </div>
-            </div>
-              <div class="carousel-item">
-              <div class="carousel-grid">
-              <img src="imagenes trabajos/at9.jpeg" class="d-block img-fluid" alt="Trabajo 9">
-              <img src="imagenes trabajos/at10.jpeg" class="d-block img-fluid" alt="Trabajo 10">
-              <img src="imagenes trabajos/at11.jpeg" class="d-block img-fluid" alt="Trabajo 11">
-              <img src="imagenes trabajos/at12.jpeg" class="d-block img-fluid" alt="Trabajo 12">
-              </div>
-            </div>
-            <div class="carousel-item">
-            <div class="carousel-grid">
-              <img src="imagenes trabajos/at13.jpeg" class="d-block img-fluid" alt="Trabajo 13">
-              <img src="imagenes trabajos/at14.jpeg" class="d-block img-fluid" alt="Trabajo 14">
-              <img src="imagenes trabajos/at15.jpeg" class="d-block img-fluid" alt="Trabajo 15">
-              <img src="imagenes trabajos/at16.jpeg" class="d-block img-fluid" alt="Trabajo 16">
-            </div>
+<!-- Certificaciones ISO -->
+<section class="certificaciones-iso">
+  <div class="container text-center">
+    <h2 class="titulo-certificado animate-up">Contamos con certificaciones internacionales</h2>
+    <div class="d-flex justify-content-center flex-wrap gap-4 mt-4 animate-up">
+      <img src="logos svg/iso-9001.svg" alt="ISO 9001" class="img-certificacion">
+      <img src="logos svg/iso-14001.svg" alt="ISO 14001" class="img-certificacion">
+      <img src="logos svg/iso-45001.svg" alt="ISO 45001" class="img-certificacion">
+    </div>
+  </div>
+</section>
+
+<!-- Galería de trabajos como carrusel -->
+<section class="clientes">
+  <div class="container">
+    <h2 style="color: rgb(241, 132, 45);">Algunos de nuestros trabajos</h2>
+    <div id="carouselTrabajos" class="carousel slide carousel-clientes" data-bs-ride="carousel" data-bs-interval="7000">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <div class="clientes-grid">
+            <img src="imagenes trabajos/at1.jpeg" alt="Trabajo 1">
+            <img src="imagenes trabajos/at2.jpeg" alt="Trabajo 2">
+            <img src="imagenes trabajos/at3.jpeg" alt="Trabajo 3">
+            <img src="imagenes trabajos/at4.jpeg" alt="Trabajo 4">
+            <img src="imagenes trabajos/at5.jpeg" alt="Trabajo 5">
           </div>
-          <button class="carousel-control-prev" type="button" data-bs-target="#carouselTrabajos" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Anterior</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#carouselTrabajos" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Siguiente</span>
-          </button>
+        </div>
+        <div class="carousel-item">
+          <div class="clientes-grid">
+            <img src="imagenes trabajos/at6.jpeg" alt="Trabajo 6">
+            <img src="imagenes trabajos/at7.jpeg" alt="Trabajo 7">
+            <img src="imagenes trabajos/at8.jpeg" alt="Trabajo 8">
+            <img src="imagenes trabajos/at9.jpeg" alt="Trabajo 9">
+            <img src="imagenes trabajos/at10.jpeg" alt="Trabajo 10">
+          </div>
+        </div>
+        <div class="carousel-item">
+          <div class="clientes-grid">
+            <img src="imagenes trabajos/at11.jpeg" alt="Trabajo 11">
+            <img src="imagenes trabajos/at12.jpeg" alt="Trabajo 12">
+            <img src="imagenes trabajos/at13.jpeg" alt="Trabajo 13">
+            <img src="imagenes trabajos/at14.jpeg" alt="Trabajo 14">
+            <img src="imagenes trabajos/at15.jpeg" alt="Trabajo 15">
+          </div>
         </div>
       </div>
-    </section>
-  </main>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselTrabajos" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Anterior</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselTrabajos" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Siguiente</span>
+      </button>
+    </div>
+  </div>
+</section>
+
 
 <!-- Footer -->
 <footer class="bg-footer-custom text-white text-center py-2">
