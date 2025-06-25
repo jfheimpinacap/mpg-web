@@ -58,16 +58,20 @@
     <p><strong>TENGA EN CUENTA:</strong><br>
     Trabajamos con equipos <strong>desde los 50 HP en adelante.</strong></p>
 
-    <form action="#" method="post" enctype="multipart/form-data">
-      <div class="row mb-3">
-        <div class="col-md-6">
-          <label class="form-label">Tipo de Servicio:</label>
-          <select class="form-select">
-            <option selected>Seleccione...</option>
-            <option>Mantenimiento de Motor Eléctrico</option>
-            <option>Reparación de Bombas</option>
-            <option>Bobinado</option>
-          </select>
+<!-- ALERTAS -->
+<div id="formAlert" class="alert d-none" role="alert"></div>
+
+<form id="cotizacionForm" enctype="multipart/form-data">
+  <div class="row mb-3">
+    <div class="col-md-6">
+      <label class="form-label">Tipo de Servicio:</label>
+      <select class="form-select" id="servicio" name="servicio" required>
+        <option value="">Seleccione...</option>
+        <option>Mantenimiento de Motor Eléctrico</option>
+        <option>Reparación de Bombas</option>
+        <option>Reparación de Blower</option>
+        <option>Reparación de Motorreductores</option>
+      </select>
         </div>
         <div class="col-md-6">
           <label class="form-label">Marca del equipo:</label>
@@ -103,19 +107,19 @@
       <div class="row mb-3">
         <div class="col-md-6">
           <label class="form-label">Nombre:</label>
-          <input type="text" class="form-control">
+          <input type="text" class="form-control" id="nombre" name="nombre" required>
         </div>
-        <div class="col-md-6">
+      <div class="col-md-6">
           <label class="form-label">Su Empresa:</label>
-          <input type="text" class="form-control">
+          <input type="text" class="form-control" id="empresa" name="empresa" required>
         </div>
-        <div class="col-md-6">
+      <div class="col-md-6">
           <label class="form-label">Su correo electrónico:</label>
-          <input type="email" class="form-control">
+          <input type="email" class="form-control" id="correo" name="correo" required>
         </div>
-        <div class="col-md-6">
+      <div class="col-md-6">
           <label class="form-label">Número de contacto:</label>
-          <input type="text" class="form-control">
+          <input type="text" class="form-control" id="telefono" name="telefono" required>
         </div>
       </div>
 
@@ -124,6 +128,33 @@
       </div>
     </form>
   </section>
+
+<!--Mensaje de control formulario -->
+<script>
+  document.getElementById('cotizacionForm').addEventListener('submit', function (e) {
+    e.preventDefault(); // Previene el envío real
+
+    const servicio = document.getElementById('servicio').value.trim();
+    const nombre = document.getElementById('nombre').value.trim();
+    const empresa = document.getElementById('empresa').value.trim();
+    const correo = document.getElementById('correo').value.trim();
+    const telefono = document.getElementById('telefono').value.trim();
+    const alertBox = document.getElementById('formAlert');
+
+    if (!servicio || !nombre || !empresa || !correo || !telefono) {
+      alertBox.className = 'alert alert-danger';
+      alertBox.textContent = 'Por favor complete todos los campos obligatorios.';
+      alertBox.classList.remove('d-none');
+    } else {
+      alertBox.className = 'alert alert-success';
+      alertBox.textContent = 'Formulario enviado correctamente. Pronto nos pondremos en contacto.';
+      alertBox.classList.remove('d-none');
+      // Opcional: limpiar formulario
+      this.reset();
+    }
+  });
+</script>
+
 </body>
 </html>
 

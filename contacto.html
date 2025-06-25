@@ -159,25 +159,27 @@
         <!-- Formulario de contacto -->
         <div class="col-md-6">
           <div class="form-intro">Envíanos tus consultas</div>
-          <form class="needs-validation" novalidate>
+          <!-- Alerta de resultado -->
+          <div id="contactAlert" class="alert d-none" role="alert"></div>
+          <form id="formContacto" class="needs-validation" novalidate>
             <div class="mb-3">
-              <input type="text" class="form-control" placeholder="Nombre" required>
-              <div class="invalid-feedback">Por favor ingrese su nombre.</div>
-            </div>
+             <input type="text" class="form-control" id="nombre" placeholder="Nombre" required>
+            <div class="invalid-feedback">Por favor ingrese su nombre.</div>
+          </div>
             <div class="mb-3">
-              <input type="text" class="form-control" placeholder="Empresa" required>
-              <div class="invalid-feedback">Por favor ingrese el nombre de su empresa.</div>
-            </div>
+              <input type="text" class="form-control" id="empresa" placeholder="Empresa" required>
+             <div class="invalid-feedback">Por favor ingrese el nombre de su empresa.</div>
+          </div>
             <div class="mb-3">
-              <input type="tel" class="form-control" placeholder="Celular" required>
+              <input type="tel" class="form-control" id="celular" placeholder="Celular" required>
               <div class="invalid-feedback">Por favor ingrese su número de celular.</div>
             </div>
             <div class="mb-3">
-              <input type="email" class="form-control" placeholder="Email" required>
+              <input type="email" class="form-control" id="email" placeholder="Email" required>
               <div class="invalid-feedback">Por favor ingrese un correo válido.</div>
             </div>
             <div class="mb-3">
-              <textarea class="form-control" placeholder="Mensaje" rows="4" required></textarea>
+              <textarea class="form-control" id="mensaje" placeholder="Mensaje" rows="4" required></textarea>
               <div class="invalid-feedback">Por favor escriba su mensaje.</div>
             </div>
             <div class="text-center">
@@ -194,22 +196,34 @@
   <small>Desarrollado por <a href="mailto:heim.franz@gmail.com" class="text-white text-decoration-none">heim.franz@gmail.com</a></small>
 </footer>
 
-  <script>
-    // Validación de formulario Bootstrap
-    (() => {
-      'use strict';
-      const forms = document.querySelectorAll('.needs-validation');
-      Array.from(forms).forEach(form => {
-        form.addEventListener('submit', event => {
-          if (!form.checkValidity()) {
-            event.preventDefault();
-            event.stopPropagation();
-          }
-          form.classList.add('was-validated');
-        }, false);
-      });
-    })();
-  </script>
+<!--Validación formulario contacto-->
+<script>
+  (() => {
+    'use strict';
+    const form = document.getElementById('formContacto');
+    const alertBox = document.getElementById('contactAlert');
+
+    form.addEventListener('submit', event => {
+      event.preventDefault(); // Evita el envío real
+
+      if (!form.checkValidity()) {
+        event.stopPropagation();
+        alertBox.className = 'alert alert-danger';
+        alertBox.textContent = 'Por favor complete todos los campos obligatorios.';
+        alertBox.classList.remove('d-none');
+      } else {
+        alertBox.className = 'alert alert-success';
+        alertBox.textContent = 'Mensaje enviado correctamente. Nos pondremos en contacto pronto.';
+        alertBox.classList.remove('d-none');
+        form.reset();
+        form.classList.remove('was-validated');
+      }
+
+      form.classList.add('was-validated');
+    }, false);
+  })();
+</script>
+
 
 </body>
 </html>
